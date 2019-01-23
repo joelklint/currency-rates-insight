@@ -19,6 +19,13 @@ def send_email(to, subject, text):
     return response.json()
 
 with open('../email_template.txt', 'r') as r_file:
-    TEMPLATE=r_file.read()
-def prepare_email_txt(rate_today):
-    return TEMPLATE.format(today=rate_today)
+    TEMPLATE_TXT=r_file.read()
+def prepare_email_txt(today, weekly, monthly):
+    return TEMPLATE_TXT.format(
+        today=round(today, 4),
+        weekly_absolute=round(weekly['absolute'], 4),
+        weekly_percentage=f"{round(weekly['percentage'], 2)}%",
+        monthly_absolute=round(monthly['absolute'], 4),
+        monthly_percentage=f"{round(monthly['percentage'], 2)}%",
+    )
+

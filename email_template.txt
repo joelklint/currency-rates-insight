@@ -1,1 +1,5 @@
+Hello Sir,
+
 Todays rate: {today}
+Weekly change: {weekly_absolute}, {weekly_percentage}
+Monthly change: {monthly_absolute}, {monthly_percentage}
