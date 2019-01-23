@@ -29,3 +29,13 @@ def prepare_email_txt(today, weekly, monthly):
         monthly_percentage=f"{round(monthly['percentage'], 2)}%",
     )
 
+with open('../email_template.html', 'r') as r_file:
+    TEMPLATE_HTML=r_file.read()
+def prepare_email_html(today, weekly, monthly):
+    return TEMPLATE_HTML.format(
+        today=round(today, 4),
+        weekly_absolute=round(weekly['absolute'], 4),
+        weekly_percentage=f"{round(weekly['percentage'], 2)}%",
+        monthly_absolute=round(monthly['absolute'], 4),
+        monthly_percentage=f"{round(monthly['percentage'], 2)}%",
+    )

@@ -1,0 +1,36 @@
+<style>
+tr > td:nth-child(2) {{
+    border-right: 1px solid black;
+    border-left: 1px solid black;
+}}
+
+th {{
+    border-bottom: 1px solid black;
+}}
+</style>
+
+<div>
+    <h2>
+        Todays rate: {today}
+    </h2>
+</div>
+
+<div>
+    <table>
+        <tr>
+            <th>Time period</th>
+            <th class='center_col'>Absolute change</th>
+            <th>Percentage change</th>
+        </tr>
+        <tr>
+            <td>Weekly</td>
+            <td class='center_col'>{weekly_absolute}</td>
+            <td>{weekly_percentage}</td>
+        </tr>
+        <tr>
+            <td>Monthly</td>
+            <td class='center_col'>{monthly_absolute}</td>
+            <td>{monthly_percentage}</td>
+        </tr>
+    </table>
+</div>
