@@ -19,7 +19,7 @@ def get_change(start, end):
     end_rate=get_rate(date=end)
     return {
         'absolute': start_rate - end_rate,
-        'percentage': start_rate / end_rate
+        'percentage': (start_rate / end_rate)*100-100
     }
 
 def get_weekly_change(date=date.today()):
