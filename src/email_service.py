@@ -3,13 +3,14 @@ import os
 
 MAILGUN_API_KEY=os.environ['MAILGUN_API_KEY']
 MAILGUN_DOMAIN=os.environ['MAILGUN_DOMAIN']
-def send_email(to, subject, text):
+def send_email(to, subject='', text='', html=''):
     URL=f"https://api.mailgun.net/v3/{MAILGUN_DOMAIN}/messages"
     PARAMS = {
         'from': f'Jarvis <jarvis@{MAILGUN_DOMAIN}>',
         'to': to,
         'subject': subject,
-        'text': text
+        'text': text,
+        'html': html
     }
     response = requests.post(
         url=URL,
