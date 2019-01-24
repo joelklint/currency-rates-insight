@@ -37,6 +37,8 @@ def prepare_email_html(today, weekly, monthly):
         today=round(today, 4),
         weekly_absolute=round(weekly['absolute'], 4),
         weekly_percentage=f"{round(weekly['percentage'], 2)}%",
+        weekly_color='#de3241' if weekly['absolute'] < 0 else '#1da83f',
         monthly_absolute=round(monthly['absolute'], 4),
         monthly_percentage=f"{round(monthly['percentage'], 2)}%",
+        monthly_color='#de3241' if monthly['absolute'] < 0 else '#1da83f'
     )
