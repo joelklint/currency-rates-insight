@@ -1,12 +1,13 @@
 import requests
+import os
 from datetime import date, timedelta
 import matplotlib.pyplot as plt
 import base64
 from io import BytesIO
 import numpy as np
 
-BASE_CURRENCY='DKK'
-TARGET_CURRENCY='SEK'
+BASE_CURRENCY=os.environ['BASE_CURRENCY']
+TARGET_CURRENCY=os.environ['TARGET_CURRENCY']
 
 BASE_URL="https://api.exchangeratesapi.io"
 
@@ -20,7 +21,7 @@ def get_rate_at_day(date=date.today()):
         'symbols': TARGET_CURRENCY
     }
     response = requests.get(url=URL, params=PARAMS)
-    return response.json()['rates']['SEK']
+    return response.json()['rates'][TARGET_CURRENCY]
 
 def get_rate_for_period(start, end):
     URL=f"{BASE_URL}/history"

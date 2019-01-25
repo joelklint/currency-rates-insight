@@ -16,6 +16,8 @@ if __name__ == '__main__':
     #     monthly=monthly
     # )
     email_html = email_service.prepare_email_html(
+        base_currency=currency_service.BASE_CURRENCY,
+        target_currency=currency_service.TARGET_CURRENCY,
         current=current,
         weekly=weekly,
         monthly=monthly,
@@ -25,7 +27,7 @@ if __name__ == '__main__':
     for recipient in EMAIL_RECIPIENTS.split(','):
         email_service.send_email(
             to=recipient,
-            subject='DKK/SEK insight',
+            subject=f'{currency_service.BASE_CURRENCY}/{currency_service.TARGET_CURRENCY} insight',
             text='',
             html=email_html
         )

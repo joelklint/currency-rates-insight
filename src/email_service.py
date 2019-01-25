@@ -32,8 +32,10 @@ def prepare_email_txt(today, weekly, monthly):
 
 with open('../email_template.html', 'r') as r_file:
     TEMPLATE_HTML=r_file.read()
-def prepare_email_html(current, weekly, monthly, monthly_plot, yearly_plot):
+def prepare_email_html(base_currency, target_currency, current, weekly, monthly, monthly_plot, yearly_plot):
     return TEMPLATE_HTML.format(
+        base_currency=base_currency,
+        target_currency=target_currency,
         current_rate=round(current, 4),
         weekly_absolute=round(weekly['absolute'], 4),
         weekly_percentage=f"{round(weekly['percentage'], 2)}%",
